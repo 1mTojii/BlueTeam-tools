@@ -80,7 +80,7 @@ Summary
 ## Running tests
 
 ```bash
-python tests/test_detector.py
+py tests/test_detector.py
 ```
 
 ## Why this exists
