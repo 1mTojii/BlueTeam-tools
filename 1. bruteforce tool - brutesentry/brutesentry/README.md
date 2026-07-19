@@ -57,7 +57,6 @@ py -m brutesentry.cli --log sample_logs\auth.log --follow
 # In second cmd window type 3 or 4 times
 echo {"ts": 1900000000.0, "ip": "6.6.6.6", "user": "root", "success": false} >> sample_logs\auth.log
 #and the return should be a critical.. cool right?
-<img width="932" height="332" alt="image" src="https://github.com/user-attachments/assets/f93035b1-3410-4d51-aeab-1528b3ce76ec" />
 
 # Send alerts to a Discord/Slack webhook as they happen
 py -m brutesentry.cli --log sample_logs/auth.log --webhook https://discord.com/api/webhooks/...
