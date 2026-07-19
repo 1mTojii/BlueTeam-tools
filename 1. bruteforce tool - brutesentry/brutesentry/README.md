@@ -37,25 +37,26 @@ exports, and webhook alerts.
 - **No dependencies** — pure Python standard library
 
 ## Quick start
+Note: maybe you will have to switch the "py" to python for it to work in the cmd
 
 ```bash
 # Generate a sample log with normal traffic + 2 injected brute-force attacks
-python generate_sample_log.py
+py generate_sample_log.py
 
 # Run the detector against it
-python -m brutesentry.cli --log sample_logs/auth.log
+py -m brutesentry.cli --log sample_logs/auth.log
 
 # Tune sensitivity
-python -m brutesentry.cli --log sample_logs/auth.log --threshold 4 --window 30
+py -m brutesentry.cli --log sample_logs/auth.log --threshold 4 --window 30
 
 # Export results
-python -m brutesentry.cli --log sample_logs/auth.log --json alerts.json --csv alerts.csv
+py -m brutesentry.cli --log sample_logs/auth.log --json alerts.json --csv alerts.csv
 
 # Watch a live log file (like tail -f)
-python -m brutesentry.cli --log /var/log/auth.log --follow
+py -m brutesentry.cli --log sample_logs\auth.log --follow
 
 # Send alerts to a Discord/Slack webhook as they happen
-python -m brutesentry.cli --log sample_logs/auth.log --webhook https://discord.com/api/webhooks/...
+py -m brutesentry.cli --log sample_logs/auth.log --webhook https://discord.com/api/webhooks/...
 ```
 
 ## Sample output
