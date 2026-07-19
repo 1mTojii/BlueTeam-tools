@@ -1,0 +1,2 @@
+# BruteSentry uses only the Python standard library.
+# This file is intentionally empty of hard dependencies.
