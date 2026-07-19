@@ -1,6 +1,6 @@
 # BruteSentry
 
-A lightweight brute-force login detector. Feed it an auth log and it flags
+A lightweight bruteforce login detector. Feed it an auth log and it flags
 IPs hammering login attempts, scores severity, and can export results or
 fire a webhook alert — with zero external dependencies.
 
@@ -17,11 +17,11 @@ fire a webhook alert — with zero external dependencies.
 
 BruteSentry tracks failed login attempts per source IP using a sliding time
 window. Once an IP crosses a configurable failure threshold inside that
-window, it gets flagged with a severity level (`LOW` / `MEDIUM` / `HIGH` /
-`CRITICAL`) based on how far over the threshold it went and how fast the
+window, it gets flagged with a severity level ("LOW", "MEDIUM", "HIGH" ,
+"CRITICAL") based on how far over the threshold it went and how fast the
 attempts came in. A successful login clears an IP's slate.
 
-That's the entire core algorithm — a per-IP sliding window counter. The rest
+That's the entire core algorithm, a per-IP sliding window counter. The rest
 of the project is presentation: parsing, live tailing, colored CLI output,
 exports, and webhook alerts.
 
@@ -73,35 +73,6 @@ Summary
 ------------------------------------------------------------
 ```
 
-## Log formats
-
-**JSON-lines** (what the sample generator produces):
-```json
-{"ts": 1752000015.2, "ip": "45.33.12.201", "user": "admin", "success": false}
-```
-
-**sshd-style syslog**:
-```
-Jul 18 14:02:11 host sshd[1234]: Failed password for admin from 10.0.0.5 port 51322 ssh2
-```
-
-## Project structure
-
-```
-brutesentry/
-├── brutesentry/
-│   ├── detector.py    # core sliding-window detection logic
-│   ├── parser.py       # log line parsing (JSON-lines + sshd format)
-│   ├── reporter.py     # colored terminal output
-│   ├── exporter.py     # JSON/CSV export + webhook alerts
-│   └── cli.py          # argument parsing & orchestration
-├── tests/
-│   └── test_detector.py
-├── generate_sample_log.py   # creates a demo log with injected attacks
-└── sample_logs/
-    └── auth.log (generated)
-```
-
 ## Running tests
 
 ```bash
@@ -111,10 +82,9 @@ python tests/test_detector.py
 ## Why this exists
 
 Built while working through web fundamentals and access-control concepts on
-HTB Academy — brute-force detection is a small, self-contained way to turn
-"failed login = suspicious" theory into something that actually runs against
-a log file. Not meant to replace a real IDS/SIEM; it's a from-scratch look
-at how that first layer of detection logic works.
+HTB Academy. Its a simple project for my school degree it was built using my own knowledge from my python course
+and AI. It was a simple line of code but instead of cramping everyhting into one file i made it look more structured
+and organized using Claude. 
 
 ## Ideas for extending it
 
@@ -126,4 +96,4 @@ at how that first layer of detection logic works.
 
 ## License
 
-MIT
+Check the other file i linked. 
