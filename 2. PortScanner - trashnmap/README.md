@@ -1,7 +1,6 @@
 # PortScanner (Java)
-
-A simple TCP connect-scan tool. Given a host and a port range, it tries to
-open a connection to each port and reports which ones respond.
+I made a very, very  ancient version of nmap its just a simple TCP connect scan tool. Given a host and a port range it tries to
+open a connection to each port and reports which ones respond. It a very flimsy tool at that point just use Nmap this is just a tool i made for my portfolio c:
 
 ## How it works
 
@@ -27,7 +26,7 @@ Example:
 java PortScanner scanme.nmap.org 20 100
 ```
 
-`scanme.nmap.org` is a host the Nmap project specifically set up to be
+"scanme.nmap.org" is a host the Nmap project specifically set up to be
 safely and legally scanned for testing tools like this one — a good default
 target while you're experimenting.
 
@@ -50,16 +49,11 @@ Scan complete.
 ## A note on legality
 
 Only scan hosts you own or have explicit permission to test
-(`scanme.nmap.org` is the one public exception, set up for exactly this
+("scanme.nmap.org" is the one public exception, set up for exactly this
 purpose). Port scanning systems you don't have permission for can be
-illegal depending on jurisdiction, even if no damage is done.
+illegal depending on jurisdiction, even if no damage is done. It is the same stuff as nmap.
+if you point my tool at lets say mnemonic you will get a knock on your door... 
 
-## Ideas for extending it
-
-- Add multithreading so ranges scan in parallel instead of one port at a time
-- Banner grabbing — after connecting, read the first few bytes a service sends back to guess what's running (e.g. SSH, HTTP)
-- Export results to JSON/CSV, matching BruteSentry's export style
-- Add a `--timeout` flag instead of a hardcoded constant
 
 ## License
 
