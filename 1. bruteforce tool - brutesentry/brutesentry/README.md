@@ -38,7 +38,7 @@ exports, and webhook alerts.
 
 ## Quick start
 Note: maybe you will have to switch the "py" to python for it to work in the cmd
-
+Note: Note that you ALLWAYS have to be in the folder. For noobies
 ```bash
 # Generate a sample log with normal traffic + 2 injected brute-force attacks
 py generate_sample_log.py
