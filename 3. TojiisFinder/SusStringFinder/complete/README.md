@@ -1,31 +1,30 @@
-# SusStringFinder
+# TojiisFinder or SusStringFinder
 
-A simple static string scanner in C — the "YARA-lite" of the BlueTeam-tools
-collection. Scans files (or whole directories recursively) for suspicious
+A simple string scanner i made in C. It scans files or whole directories recursively for suspicious
 substrings commonly seen in malware, obfuscated scripts, and
 living-off-the-land attack patterns.
 
 ## How it works
 
 For every file, the whole thing gets read into memory and checked against
-a fixed list of ~28 signatures — plain substrings like `eval(`,
-`base64_decode`, `Invoke-Expression`, `certutil -decode`, etc. — matched
-case-insensitively. Every hit gets reported with the byte offset, which
+a fixed list of rougly 28 signatures plain substrings like `eval(`,
+`base64_decode`, `Invoke-Expression`, `certutil -decode`, etc.
+Every hit gets reported with the byte offset, which
 signature matched, a severity level, and a short snippet of surrounding
 text so you can see the match in context.
 
-That's the entire technique: read the file, slide through it looking for
-known bad substrings. No parsing, no heuristics, no entropy analysis — real
-tools like YARA/ClamAV do all of that on top. This is the simplest possible
-version of the idea.
+That's the entire technique.. read the file, slide through it looking for
+known bad substrings. No parsing, no heuristics, no entropy analysis. Real
+tools like YARA or ClamAV do all of that on top which this tool is taken inspiration from. 
+This is the simplest possible version of these tools.
 
 **Important:** a match here is a _flag for a closer look_, not a verdict.
 Plenty of legitimate scripts use `eval()`, shell calls, or `CreateObject`.
 This is a triage tool, the same way a metal detector beeping doesn't mean
-there's a bomb — it means "worth checking."
+there's a bomb, it just means "worth checking."
 
 ## Building
-
+note: Do this in an ubuntu or install a Linux environment with a wsl --install in the windows cmd. 
 ```bash
 make
 ```
@@ -53,7 +52,7 @@ make debug
 Example:
 
 ```bash
-./SusStringFinder -r ./samples
+./SusStringFinder -r ./samples 
 ```
 
 ## Sample output
@@ -112,19 +111,9 @@ Since this is C, a few deliberate choices worth calling out:
 
 ## Why this exists
 
-Built to explore basic static-analysis/malware-triage concepts, and as a
-C project to sit alongside the Java/Python port scanners in this repo —
-a chance to work with raw file I/O, manual string matching, and directory
-traversal at a lower level than Python/Java usually require. AI-assisted
-build; understood and tested by me, including running it under sanitizer
-builds to confirm there are no memory bugs.
-
-## Ideas for extending it
-
-- Support simple wildcard/regex patterns instead of just literal substrings
-- Load signatures from an external file instead of hardcoding them, so the list can be updated without recompiling
-- Add a `--json`/`--csv` export option to match the other tools in this repo
-- Basic entropy calculation to flag high-entropy blobs (a common indicator of packed/encrypted payloads) even without a literal string match
+Built to explore basic static-analysis/malware-triage concepts. Why C? I think C is very, very hard. 
+Amazing language but in my opinion like super duper hard. I wanted to expand my knowledge on C after my 
+exams.
 
 ## License
 
