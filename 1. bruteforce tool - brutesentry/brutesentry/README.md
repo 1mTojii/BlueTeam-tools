@@ -4,7 +4,7 @@ A lightweight bruteforce login detector. Feed it an auth log and it flags
 IPs hammering login attempts, scores severity, and can export results or
 fire a webhook alert — with zero external dependencies.
 
-`
+```
 ____             _       ____             _              
 | __ ) _ __ _   _| |_ ___/ ___|  ___ _ __ | |_ _ __ _   _ 
 |  _ \| '__| | | | __/ _ \___ \ / _ \ '_ \| __| '__| | | |
